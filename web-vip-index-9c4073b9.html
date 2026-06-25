@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>日常查询·对照·延伸阅读 — 爱游戏杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5faf8;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      line-height: 1.6;
+      color: #1d2b2b;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* === Hero / 首页横幅 === */
+    .hero {
+      background: linear-gradient(145deg, #e2f0ec 0%, #c6ddd7 100%);
+      margin: 28px 0 48px;
+      padding: 42px 28px 38px;
+      border-radius: 40px 40px 40px 40px;
+      box-shadow: 0 8px 18px rgba(60, 110, 100, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 540;
+      letter-spacing: -0.02em;
+      color: #1c3a37;
+      line-height: 1.2;
+    }
+    .hero h1 span {
+      background: #2b6b62;
+      color: #f0fbf7;
+      display: inline-block;
+      padding: 0 12px 2px 12px;
+      border-radius: 100px;
+      font-size: 1.1rem;
+      vertical-align: middle;
+      margin-left: 6px;
+      font-weight: 450;
+    }
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #2d554f;
+      max-width: 70%;
+      border-left: 3px solid #3a877b;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    /* 网格卡片区 (背景说明 + 三段自然介绍混排) */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 22px 26px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(70, 120, 110, 0.04);
+      transition: transform 0.1s ease, box-shadow 0.2s;
+      border: 1px solid rgba(80, 150, 135, 0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(40, 110, 100, 0.08);
+    }
+
+    .card-icon {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: #d8eee9;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 20px;
+      color: #2b6b62;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 520;
+      color: #1a403b;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      color: #2d4743;
+      font-size: 0.97rem;
+      margin-bottom: 14px;
+    }
+
+    .card .more-tag {
+      font-size: 0.85rem;
+      background: #e7f3ef;
+      color: #2b6b62;
+      padding: 2px 12px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+
+    /* 特色引用 / 杂志式点缀 */
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b0cfc6, transparent);
+      margin: 16px 0 44px;
+      width: 100%;
+    }
+
+    .spotlight {
+      background: #eef8f4;
+      border-radius: 40px;
+      padding: 32px 28px;
+      margin: 30px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .spotlight-text {
+      flex: 2 1 260px;
+    }
+    .spotlight-text h2 {
+      font-size: 1.6rem;
+      font-weight: 490;
+      color: #1d423d;
+      margin-bottom: 12px;
+    }
+    .spotlight-text p {
+      color: #2a524b;
+      max-width: 600px;
+    }
+
+    .spotlight-link {
+      background: #2b6b62;
+      padding: 14px 32px;
+      border-radius: 60px;
+      color: #f5fffb;
+      text-decoration: none;
+      font-weight: 470;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-top: 12px;
+      transition: background 0.2s;
+      border: none;
+      box-shadow: 0 4px 6px rgba(30, 80, 70, 0.1);
+    }
+    .spotlight-link:hover {
+      background: #1f5950;
+    }
+
+    /* FAQ 摘要 — 杂志常见查询 */
+    .faq-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 28px 0 40px;
+    }
+    .faq-item {
+      background: #ffffffda;
+      backdrop-filter: blur(2px);
+      padding: 18px 16px;
+      border-radius: 20px;
+      border: 1px solid #cfe5df;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 520;
+      color: #1f5148;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    .faq-item span {
+      color: #2f5f57;
+      font-size: 0.92rem;
+    }
+
+    /* 页尾提示 */
+    .footer-note {
+      margin: 48px 0 40px;
+      text-align: center;
+      padding: 24px 16px;
+      border-top: 1px solid #d1e4dd;
+      color: #38665e;
+    }
+    .footer-note a {
+      color: #1d5f54;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #3e8b7b;
+    }
+    .footer-note a:hover {
+      border-bottom: 1px solid #1a4f44;
+    }
+
+    .footer-note .meta {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* 移动端细节 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .subhead {
+        max-width: 100%;
+      }
+      .spotlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .spotlight-link {
+        width: 100%;
+        text-align: center;
+      }
+      .card {
+        padding: 22px 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 28px 18px 30px;
+        margin: 16px 0 32px;
+      }
+      .grid-cards {
+        gap: 16px;
+      }
+      .faq-mini {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+      <h1>
+        日常对照·延伸阅读
+        <span>爱游戏</span>
+      </h1>
+      <div class="subhead">
+        从一次简单查询开始，慢慢翻到一篇对照、一段背景、一位玩家的视角。
+      </div>
+    </header>
+
+    <!-- 三段自然介绍 + 背景说明（网格卡片） -->
+    <div class="grid-cards">
+      <article class="card">
+        <div class="card-icon">🔍</div>
+        <h3>日常查询・查玩法</h3>
+        <p>打开手机或者电脑，在社区或讨论组里遇到不熟悉的关卡称呼，很多人第一反应就是去搜一搜。有人直接输入几个关键词，有人习惯翻翻对照帖。不少玩家在 <a href="https://web-vip-igame.com" style="color: #1f6b5e; text-decoration: underline; text-underline-offset: 2px;">爱游戏</a> 上对比过版本号、活动时间、角色译名，慢慢地这里就成了一个日常查阅的落脚点。</p>
+        <span class="more-tag">查询参考</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📋</div>
+        <h3>对照与背景说明</h3>
+        <p>同一款游戏在不同平台、不同语言版本下，细节总有些差异。有人习惯同时打开两个页面，一行一行对照技能描述或道具名称。这种时候，一个稳定的信息对照页能省很多来回翻的功夫。不赶进度，只是安静地把条目列在一起，看明白再关闭。</p>
+        <span class="more-tag">对照参考</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🧩</div>
+        <h3>延伸阅读・关联内容</h3>
+        <p>从一条查询点开另一条，从一个界面跳到另一段说明，不知不觉就看了七八个相关条目。无论是早期版本的截图，还是后来的优化调整，这些延伸内容让日常浏览多了一点“原来是这样”的发现感。不刻意，但很自然。</p>
+        <span class="more-tag">延伸内容</span>
+      </article>
+    </div>
+
+    <!-- 杂志风格的背景说明 与 关键链接 -->
+    <div class="spotlight">
+      <div class="spotlight-text">
+        <h2>从查询到翻阅 · 一个安静的角落</h2>
+        <p>不需要广告或夸张的导语，很多玩家只是把它当作一个可以随时打开的页面：查一下活动日历、对照一下任务描述、或者纯粹为了满足好奇心读两段背景。如果你也常常需要这些，不妨把 <a href="https://web-vip-igame.com" style="color: #1a5448; font-weight: 500; text-decoration: underline;">爱游戏</a> 留在标签栏里。</p>
+      </div>
+      <div>
+        <a href="https://web-vip-igame.com" class="spotlight-link">爱游戏</a>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 — 杂志常见查询 -->
+    <div style="margin-bottom: 12px;">
+      <h3 style="font-weight: 470; font-size: 1.2rem; color: #2b5f56; letter-spacing: -0.01em;">📎 常见查询摘要</h3>
+    </div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>更新对照</strong>
+        <span>版本号、卡池顺序、活动时间表——很多玩家来这里逐条对一下。</span>
+      </div>
+      <div class="faq-item">
+        <strong>名词统一</strong>
+        <span>同一角色在不同渠道有不同译名，对照页面能快速找到常用说法。</span>
+      </div>
+      <div class="faq-item">
+        <strong>机制说明</strong>
+        <span>一些隐藏机制或阈值，经常被整理成简明条目，方便反复查阅。</span>
+      </div>
+      <div class="faq-item">
+        <strong>延伸路径</strong>
+        <span>看完一条后，底下的“相关条目”常常能引出新的发现。</span>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+      <p>如果你也只是想找个地方安静地查一查、对一对、随便翻翻——</p>
+      <p style="margin-top: 8px; font-size: 1.1rem;">
+        <a href="https://web-vip-igame.com">爱游戏</a>
+      </p>
+      <div class="meta">杂志专题 · 日常对照与延伸阅读</div>
+    </footer>
+
+  </div>
+</body>
+</html>
