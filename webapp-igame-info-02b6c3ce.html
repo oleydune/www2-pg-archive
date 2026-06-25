@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 站点介绍与知识指引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #fcfcfb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e1e1e;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 740px;
+      width: 100%;
+    }
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.4rem;
+      color: #1f2933;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 450;
+      margin: 2.8rem 0 0.8rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #dce1e6;
+      color: #1f2933;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1.8rem 0 0.5rem;
+      color: #2d3748;
+    }
+    p, li {
+      color: #2e3a46;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .hero {
+      margin-top: 0.8rem;
+      padding: 1.8rem 0 1.2rem;
+    }
+    .hero p {
+      font-size: 1.12rem;
+      color: #3a4a5a;
+      max-width: 600px;
+    }
+    a {
+      color: #1a5c8a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      font-weight: 500;
+      transition: border-color 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #1a5c8a;
+    }
+    .intro-box {
+      background: #f4f6f9;
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0 0.6rem;
+      border-left: 4px solid #7a9bb5;
+    }
+    .intro-box p {
+      margin-top: 0.2rem;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0 0.8rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.4rem 1.3rem 1.2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 20, 30, 0.04);
+      border: 1px solid #eceff3;
+    }
+    .card-title {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #1a2a38;
+      letter-spacing: 0.01em;
+    }
+    .card p {
+      font-size: 0.96rem;
+      color: #3d4a57;
+    }
+    .info-note {
+      background: #f9fafc;
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 2.2rem 0 1.2rem;
+      border: 1px solid #e3e9ef;
+    }
+    .info-note p {
+      font-size: 0.96rem;
+      color: #41505e;
+    }
+    .faq-summary {
+      margin: 2.8rem 0 1rem;
+    }
+    .faq-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e9ee;
+    }
+    .faq-q {
+      font-weight: 500;
+      color: #1e2b38;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .faq-a {
+      color: #445764;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .footer-meta {
+      margin-top: 3.5rem;
+      font-size: 0.9rem;
+      color: #697a88;
+      border-top: 1px solid #e2e7ed;
+      padding-top: 1.8rem;
+    }
+    .footer-meta a {
+      font-weight: 400;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e2e7ed;
+      margin: 2rem 0;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem 1rem 3rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .intro-box {
+        padding: 1.2rem 1.2rem;
+      }
+      .hero p {
+        font-size: 1.04rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>爱游戏 · 知识库入口</h1>
+      <p>一份关于爱游戏站点的说明与指引。我们从信息可信、服务边界与使用场景展开，帮助访客建立清晰认知。</p>
+    </div>
+
+    <!-- 站点介绍与可信说明区 -->
+    <div class="intro-box">
+      <p style="font-weight: 450; margin-bottom: 0.2rem;">关于站点</p>
+      <p><a href="https://webapp-igame.com">爱游戏</a> 是一个面向游戏爱好者的内容与工具集合页面，提供轻量化的在线体验与资讯索引。站点本身不模拟、不托管任何游戏客户端，也不存储用户数据，仅作为信息与功能的导航节点。</p>
+      <p style="margin-top: 0.8rem;">本站的定位偏向「游戏知识库」—— 聚合常见查询、工具入口与说明文档，让玩家在需要时快速定位资源，减少信息筛选成本。</p>
+    </div>
+
+    <!-- 目录感布局：特点 + 适用场景 -->
+    <h2>站点特点</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <div class="card-title">轻量直达</div>
+        <p>无需下载或注册，页面设计力求简洁，减少冗余步骤。每个功能区块都附带说明，降低使用困惑。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">内容归整</div>
+        <p>围绕常见游戏话题整理索引，涵盖入门指引、术语解释、资源对照等，适合快速查阅。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">隐私友好</div>
+        <p>不收集个人身份信息，不设置追踪 cookie，页面运行中不发起第三方请求（静态托管环境）。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">持续迭代</div>
+        <p>内容根据社区反馈与信息更新逐步修订，保持引用来源的时效性，避免过时指引。</p>
+      </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="info-note">
+      <p><strong>使用提示</strong> · 爱游戏提供的是信息汇总与基础工具，不代替官方客服或游戏内支持。若遇到具体技术问题，建议优先查阅游戏官方文档。本站内容仅作辅助参考，请结合实际情况判断。</p>
+    </div>
+
+    <!-- 相关信息区（FAQ 摘要+补充） -->
+    <h2>相关信息</h2>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="faq-q">爱游戏收录哪些类型的游戏？</div>
+        <div class="faq-a">主要面向网页端可触及的游戏内容（包括但不限于 HTML5、即时策略、模拟经营、解谜等类别），同时也整理部分通用游戏术语与机制解释。不专门收录主机或大型客户端游戏。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">站内的指引是否长期有效？</div>
+        <div class="faq-a">页面内容会随游戏版本或服务变化而更新，但无法保证 100% 即时同步。若发现链接失效或描述过时，欢迎通过页面底部渠道反馈（当前为静态页，反馈入口暂未开放）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以直接使用爱游戏的工具吗？</div>
+        <div class="faq-a">所有在线工具均为纯前端实现，不向服务器上传任何数据。使用时注意浏览器版本兼容性（推荐 Chrome / Firefox / Edge 最新版）。</div>
+      </div>
+    </div>
+
+    <!-- 附加说明区：可信说明 -->
+    <div style="margin: 2rem 0 1.2rem; padding: 0.2rem 0 0.4rem;">
+      <h3 style="border: none; margin: 0 0 0.6rem; font-size: 1.1rem;">可信说明</h3>
+      <p style="font-size: 0.98rem; color: #3b4a58;">本站托管于 GitHub Pages，无商业推广内容，不嵌入第三方脚本。所有指向外部资源的链接均经过人工核验，但不对外部站点内容负责。访客在浏览时请自行辨别信息准确性。</p>
+    </div>
+
+    <!-- 再次嵌入链接（自然句） -->
+    <p style="margin: 1.8rem 0 0.2rem; font-size: 0.98rem;">
+      如果你希望进一步了解站点的完整内容，可以直接访问 <a href="https://webapp-igame.com">爱游戏</a> 主页，那里汇集了更详细的分类索引。
+    </p>
+
+    <div class="footer-meta">
+      <span>爱游戏 · 知识库入口 · 内容仅供参考</span>
+      <br>
+      <span style="font-size: 0.85rem; opacity: 0.7;">2025 · 由站点维护者定期更新</span>
+    </div>
+  </div>
+</body>
+</html>
