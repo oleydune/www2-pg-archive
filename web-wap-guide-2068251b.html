@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常的线索 · 从查询到延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf8f2;
+      font-family: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+      color: #2e2b26;
+      line-height: 1.75;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    /* 开场短句 — 轻柔的引导 */
+    .opening {
+      margin-top: 2.5rem;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #7f7a72;
+      border-left: 3px solid #d9d0c4;
+      padding-left: 1.2rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+      color: #3b3731;
+      line-height: 1.3;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #8b847b;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #e5ddd2;
+      padding-bottom: 1rem;
+    }
+
+    /* 正文段落—温和的承接 */
+    .intro p {
+      margin-bottom: 1.6rem;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .intro p:first-of-type::first-letter {
+      font-size: 2.4rem;
+      float: left;
+      margin-right: 0.5rem;
+      line-height: 1;
+      color: #a68e72;
+      font-weight: bold;
+    }
+
+    /* 引用 / 提示框 — 温和的侧记 */
+    .pull-note {
+      background: #f3efe8;
+      border-left: 4px solid #c7b9a6;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 6px 12px 12px 6px;
+      font-style: normal;
+      color: #4c4740;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .pull-note em {
+      font-style: italic;
+      color: #6b6258;
+    }
+
+    .pull-note a {
+      color: #6b5e4e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c7b9a6;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .pull-note a:hover {
+      color: #3e342a;
+      text-decoration-color: #8f7c64;
+    }
+
+    /* 特点列表 — 干净、文章化 */
+    .feature-list {
+      margin: 2.2rem 0 1.8rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      padding: 0.65rem 0 0.65rem 0.2rem;
+      border-bottom: 1px dotted #e3dbcf;
+      font-size: 1rem;
+      align-items: baseline;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      font-weight: bold;
+      color: #b3a08c;
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .feature-list strong {
+      font-weight: 600;
+      color: #4a4239;
+      margin-right: 0.2rem;
+    }
+
+    /* 场景卡片 — 日常对照 */
+    .scene-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .scene-card {
+      flex: 1 1 200px;
+      background: #f7f3ec;
+      padding: 1.2rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid #e7dfd4;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      background: #f2ece2;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    }
+
+    .scene-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #4d453b;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.01em;
+    }
+
+    .scene-card p {
+      font-size: 0.92rem;
+      color: #615a50;
+      line-height: 1.5;
+    }
+
+    /* FAQ摘要（简略） */
+    .faq-summary {
+      margin: 2.5rem 0 1.2rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e5ddd2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #4d453b;
+      font-size: 1.02rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.96rem;
+      color: #5f5850;
+      padding-left: 0.5rem;
+    }
+
+    /* 温和结尾 */
+    .gentle-footer {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e1d8cb;
+      font-size: 0.95rem;
+      color: #7f786f;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .gentle-footer a {
+      color: #6b5e4e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c7b9a6;
+    }
+
+    .gentle-footer a:hover {
+      color: #3e342a;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 1.2rem 0.8rem 3rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .opening {
+        font-size: 1.1rem;
+        padding-left: 0.8rem;
+      }
+      .scene-cards {
+        flex-direction: column;
+      }
+      .feature-list li {
+        font-size: 0.96rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 开场短句 -->
+  <div class="opening">
+    随手翻开一本书，往往从目录开始；面对一个数字世界，也常从一次安静的查询启程。
+  </div>
+
+  <h1>从日常查询到延伸阅读</h1>
+  <div class="subhead">对照 · 检索 · 温和地探索</div>
+
+  <!-- 承接段落 -->
+  <div class="intro">
+    <p>
+      信息堆叠的此刻，我们常常只是需要一个地方——可以快速对照版本、核实一个名字、或者顺着某个话题多读两行。<strong>不是每一次打开屏幕都带着明确的目标</strong>，更多时候，我们只是抱着“先看看”的心情，把零碎的线索拼成完整的轮廓。在这样的日常里，一个安静、不喧哗的起点，反而最让人安心。
+    </p>
+    <p>
+      或许你已经留意到，有些站点用醒目的弹窗和闪烁的按钮催促你行动；而另一些则像一本摊开的笔记本，等你自行翻阅。<a href="https://web-wap-igame.com">爱游戏</a>便是后一种气质——它不急着让你做什么，而是把内容铺陈开来，等你在闲暇时缓缓对照、记下、或者合上。
+    </p>
+  </div>
+
+  <!-- 提示块 (引用/侧记) -->
+  <div class="pull-note">
+    💡 延伸阅读的小习惯：先看索引，再读细节。就像翻杂志时先扫一眼目录——<em>知道自己要找什么，往往比找到本身更有趣</em>。
+  </div>
+
+  <!-- 特点列表 (文章化表述) -->
+  <ul class="feature-list">
+    <li><strong>条目清晰</strong> —— 每一屏内容都像书页上的段落，标题、正文、注释各安其位，便于快速跳读。</li>
+    <li><strong>对照友好</strong> —— 同一类信息并排陈列，省去反复切换标签页的麻烦，适合横向比较。</li>
+    <li><strong>延伸自然</strong> —— 从一段描述到另一段描述，不依赖弹窗或强引导，仅靠内容本身的关联。</li>
+    <li><strong>节奏安静</strong> —— 没有多余的动画或声音，留出足够的空间给你自己决定下一步。</li>
+  </ul>
+
+  <!-- 场景卡片 (日常使用对照) -->
+  <div class="scene-cards">
+    <div class="scene-card">
+      <h3>📖 查询时</h3>
+      <p>输入一个关键词，得到的不是广告堆砌，而是结构化的条目——就像在字典里找到那个词，顺便读完了同义词。</p>
+    </div>
+    <div class="scene-card">
+      <h3>📋 对照时</h3>
+      <p>把两个版本、两段描述平行放置，不用反复滚动或切换窗口，页面自己就是一张对照表。</p>
+    </div>
+    <div class="scene-card">
+      <h3>🌱 延伸时</h3>
+      <p>顺着一个链接读到下一页，就像从一篇短文走到了它的参考文献列表——没有催促，只有内容的自然延续。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (简短, 温和) -->
+  <div class="faq-summary">
+    <div class="faq-item">
+      <div class="faq-q">Q · 这个页面适合快速浏览吗？</div>
+      <div class="faq-a">是的。内容以段落和列表为主，没有复杂的交互，可以像读文章一样从上往下，或直接跳到感兴趣的部分。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q · 是否需要在某个平台注册？</div>
+      <div class="faq-a">不需要。入口本身是一个公开的页面，打开即可阅读，没有注册门槛或强制登录。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q · 延伸阅读从哪里开始？</div>
+      <div class="faq-a">从任何一段你感到好奇的文字开始。页面内提供的链接与上下文自然衔接，你可以选择点或不点。</div>
+    </div>
+  </div>
+
+  <!-- 温和结尾 (自然嵌入链接) -->
+  <div class="gentle-footer">
+    <p>
+      如果你恰好想找一个可以慢慢翻阅、不带催促感的地方，不妨试试打开 <a href="https://web-wap-igame.com">爱游戏</a>。那里没有浮夸的欢迎语，只有按部就班呈现的内容——像图书馆里一本打开的书，等你决定从哪里读起。
+    </p>
+    <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #9a9289;">
+      —— 日常查询、对照与延伸，本就可以这样安静地发生。
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
