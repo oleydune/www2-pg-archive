@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 产品信息页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            color: #1e1e1e;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 极简 header */
+        .site-header {
+            padding: 1rem 0 2.5rem 0;
+            border-bottom: 1px solid #e6e4e0;
+            margin-bottom: 3rem;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #1c1c1a;
+        }
+
+        .site-title small {
+            font-weight: 300;
+            font-size: 1rem;
+            color: #7f7d79;
+            margin-left: 0.5rem;
+            letter-spacing: 0;
+        }
+
+        /* 内容通用 */
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 2.2rem 0 0.8rem 0;
+            color: #22211f;
+            border-left: 3px solid #b7a99e;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin: 1.6rem 0 0.4rem 0;
+            color: #2e2d2a;
+        }
+
+        p {
+            margin: 0.8rem 0 1.2rem 0;
+            color: #353430;
+        }
+
+        .summary-box {
+            background: #f2f0ed;
+            padding: 1.4rem 1.6rem;
+            border-radius: 0;
+            margin: 1.8rem 0 2rem 0;
+            border-left: 4px solid #cbc2b7;
+            font-size: 0.95rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin: 1.2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            border-bottom: 1px solid #ece8e3;
+            padding-bottom: 0.6rem;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #2a2825;
+            margin-bottom: 0.1rem;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #5b5852;
+        }
+
+        .use-card {
+            background: #ffffff;
+            padding: 1.4rem 1.6rem;
+            border: 1px solid #e3dfd9;
+            margin: 1.2rem 0;
+        }
+
+        .use-card p {
+            margin: 0.3rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e6e1da;
+            padding: 0 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 450;
+            color: #3f3b35;
+            letter-spacing: 0.02em;
+            border-radius: 0;
+            margin-right: 0.4rem;
+        }
+
+        .faq-item {
+            margin: 1rem 0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #2f2c27;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #52504b;
+            padding-left: 0.2rem;
+        }
+
+        .notice-line {
+            background: #f7f5f1;
+            padding: 1rem 1.4rem;
+            font-size: 0.88rem;
+            color: #5e5a53;
+            border: 1px solid #ddd8d0;
+            margin: 2.4rem 0 1.2rem 0;
+        }
+
+        .inline-link {
+            color: #2f2c27;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c1b6aa;
+            transition: all 0.15s ease;
+            font-weight: 450;
+        }
+
+        .inline-link:hover {
+            text-decoration-color: #1e1e1e;
+            color: #0b0b0a;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e6e4e0;
+            font-size: 0.8rem;
+            color: #7d7972;
+        }
+
+        /* 响应式 */
+        @media (max-width: 550px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .site-title {
+                font-size: 1.5rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            .use-card {
+                padding: 1rem 1rem;
+            }
+            .summary-box {
+                padding: 1rem 1rem;
+            }
+        }
+
+        /* 极简装饰 */
+        .dot-divider {
+            width: 2rem;
+            height: 2px;
+            background: #d6cfc5;
+            margin: 1.8rem 0 0.2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="site-header">
+            <div class="site-title">
+                爱游戏
+                <small>产品说明 · 信息参考</small>
+            </div>
+        </header>
+
+        <!-- 摘要区域 -->
+        <div class="summary-box">
+            <p style="margin: 0; font-weight: 450;">对于经常查阅体育数据、赛事走势或信息对照的使用者而言，<a href="https://web-sport-igame.com" class="inline-link">爱游戏</a> 可作为一个结构化的参考索引平台。它提供多维度赛事摘要与统计口径，适合延伸阅读和横向对比。</p>
+        </div>
+
+        <p>在日常信息收集中，单一来源往往难以覆盖全部细节。而一个经过整理、带有分类标签的信息页面，能有效减少逐页查找的负担。本篇从查询与对照的角度，介绍该平台的主要特点与适用场景。</p>
+
+        <!-- 亮点 / 特点 -->
+        <h2>平台信息特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>分类索引</strong>
+                <span>按赛事、联赛、项目归类，便于定位特定领域</span>
+            </div>
+            <div class="feature-item">
+                <strong>数据参照</strong>
+                <span>提供近期记录与对照值，辅助判断趋势</span>
+            </div>
+            <div class="feature-item">
+                <strong>界面简洁</strong>
+                <span>信息层级清晰，减少无关干扰</span>
+            </div>
+            <div class="feature-item">
+                <strong>持续维护</strong>
+                <span>内容随赛历更新，保持参考时效性</span>
+            </div>
+        </div>
+
+        <p>这些特点使得 <a href="https://web-sport-igame.com" class="inline-link">爱游戏</a> 在需要快速查阅某项赛事的背景数据或近期状态时，成为一个可以纳入备选的信息节点。尤其适合撰写简报、准备资料或进行跨平台比对之前，先在此处建立初步框架。</p>
+
+        <!-- 使用建议 / 场景 -->
+        <h2>常见使用场景</h2>
+
+        <div class="use-card">
+            <h3 style="margin-top: 0; font-size: 1rem; font-weight: 500;">📋 日常查询与对照</h3>
+            <p>当需要核实某场赛事的近期战绩、双方历史碰面数据或联赛排名时，可以直接在索引页中筛选对应分类。其结构化的排列方式能减少逐条翻找的时间。</p>
+        </div>
+
+        <div class="use-card">
+            <h3 style="margin-top: 0; font-size: 1rem; font-weight: 500;">📚 延伸阅读与记录整理</h3>
+            <p>对于关注多个赛事的使用者，平台所提供的汇总条目可作为笔记或参考文档的起始素材。建议结合其他官方数据源进行交叉验证，以获得更全面的认知。</p>
+        </div>
+
+        <div class="use-card">
+            <h3 style="margin-top: 0; font-size: 1rem; font-weight: 500;">🔍 信息预筛与比较</h3>
+            <p>在决定深入研究某个领域之前，可以利用爱游戏的内容快速浏览近期动态，判断哪些条目更值得进一步追踪。这有助于提高信息筛选的效率。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <h2>常见疑问摘要</h2>
+
+        <div class="faq-item">
+            <div class="q">Q：这里的资料可以直接引用吗？</div>
+            <div class="a">建议作为参考线索使用，关键数据请核对原始来源。平台信息经过归纳整理，适合用作对照与起点。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：是否需要注册或登录才能浏览？</div>
+            <div class="a">大部分索引内容可直接查阅，部分细化模块可能需要额外权限。具体以页面实际提示为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：资料更新频率如何？</div>
+            <div class="a">通常跟随主要赛历节奏更新，重大赛事期间条目会更为密集。日常保持基础数据维护。</div>
+        </div>
+
+        <!-- 可信但克制的说明 -->
+        <div class="notice-line">
+            <strong>📌 使用说明</strong>：<a href="https://web-sport-igame.com" class="inline-link">爱游戏</a> 是一个信息索引与参考型平台，所有内容均来自公开整理与汇总。使用者应依据自身判断核实关键数据，不宜将其作为唯一决策依据。本页面仅作产品介绍，不构成任何形式的保证或诱导。
+        </div>
+
+        <!-- 额外链接嵌入句子，但只有一处严格文本为「爱游戏」 -->
+        <p style="margin-top: 1.6rem;">如果你希望在信息收集阶段加入一个结构化的参考站点，不妨将 <a href="https://web-sport-igame.com" class="inline-link">爱游戏</a> 放入你的书签文件夹。它不会替代深度分析，但能成为日常查询时顺手打开的一个标签页。</p>
+
+        <div class="dot-divider"></div>
+
+        <footer class="footer-note">
+            <span>产品信息页 · 仅作介绍用途 · 内容仅供参考</span>
+        </footer>
+    </div>
+</body>
+</html>
